@@ -7,7 +7,7 @@
  */
 
 int main(void)
-[
+{
 	unsigned long int i, n;
 
 	n = 612852475143;
@@ -20,4 +20,4 @@ int main(void)
 }
 printf("%lu\n", n);
 return (0);
-]
+}
