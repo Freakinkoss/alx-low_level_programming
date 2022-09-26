@@ -29,4 +29,3 @@ if (!*pneedle)
 }
 return (0);
 }
-
