@@ -1,55 +1,40 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
 
 /**
- * main - A proogram that prints the minimum number of coins to
- * make change for an amount of money
- * @argc: The arguements' counter
- * @argv: The argument's values
- * Return: 1 if the number of arguments passed is not exactly
- * or 0 in otherwise
+ * main - prints minimum number of coins to make change for an amount of money.
+ * @argc: number of arguments passed to the function
+ * @argv: argument vector of pointers to strings
+ *
+ * Return: 0 if no errors, else 1
  */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-	int amount, coins = 0;
+	int a, n = 0, i, t;
+	int c[5] = {25, 10, 5, 2, 1};
 
-	if (argc == 2)
+	if (argc != 2)
 {
-	amount = atoi(argv[1]);
-	if (amount < 0)
-{
-	printf("%d\n", 0);
-	printf("%d\n", 0);
+	puts("Error");
+	return (1);
 }
-if (amount % 25 >= 0)
+a = atoi(argv[1]);
+if (a <= 0)
 {
-	coins += amount / 25;
-	amount = amount % 25;
-}
-if (amount % 10 >= 0)
-{
-	coins += amount / 10;
-	amount = amount % 10;
-}
-if (amount % 5 >= 0)
-{
-	coins += amount / 5;
-	amount = amount % 5;
-}
-if (amount % 2 >= 0)
-{
-	coins += amount / 2;
-	amount = amount % 2;
-}
-if (amount % 1 >= 0)
-	coins += amount;
-	printf("%d\n", coins);
-	return (0);
+	puts("0");
+	return (1);
 }
 else
 {
-	printf("Error\n");
-	return (1);
+	for (i = 0; i < 5; i++)
+{
+	t = a / c[i];
+	a -= t * c[i];
+	n += t;
+	if (a == 0)
+		break;
 }
+}
+printf("%d\n", n);
+return (0);
 }
